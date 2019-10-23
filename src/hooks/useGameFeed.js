@@ -22,7 +22,7 @@ const useGameFeed = (feedUrl) => {
     getGameData();
   }, [feedUrl])
 
-  return [data, loading, isError]
+  return [data, loading, isError];
 };
 
 export default useGameFeed;

@@ -19,10 +19,14 @@ export default function ScoreBoard(props){
   } else if (get(data, 'league') === 'MLB') {
     content = <MlbScore {...data} />
   }
-
+  console.log(get(data, 'home_team'))
   return (
     <div id="scoreboard">
-      <TeamInfo away={get(data, 'away_team')} home={get(data, 'home_team')} />
+      <div id="team-info-container">
+        <TeamInfo team={get(data, 'away_team')} status="away" />
+        <div id="vs">vs.</div>
+        <TeamInfo team={get(data, 'home_team')} status="home"/>
+      </div>
       {content}
     </div>
   );

@@ -3,20 +3,20 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: 'Questrial', sans-serif;
-}
-
 html {
   height: 100%;
 }
 
-body > #root > div {
-  height: 100vh;
+@font-face {
+  font-family: barstool;
+  src: url(./fonts/bebas.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  margin: 0;
+  font-family: 'barstool' !important;
+}
+
+body > #root > div {
+  height: 100vh;
 }

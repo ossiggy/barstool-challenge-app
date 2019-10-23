@@ -15,7 +15,7 @@ export default function Header(){
     <div id="header">
       <Navbar color='faded'>
         <NavbarBrand id="logo" href="/">
-          <img src={Logo} id="logo-img" alt="stool-logo"/> Scores
+          <img src={Logo} id="logo-img" alt="stool-logo"/>Scores
         </NavbarBrand>
         <div id="header-flex-container">
           <Nav>

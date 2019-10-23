@@ -1,9 +1,48 @@
+#scoreboard {
+  margin-top: 10px;
+}
+
 .scoreboard-container {
   max-width: 90%;
   margin: auto;
   border-radius: 5px;
   border: 1px solid lightgray;
 }
+
+#team-info-container {
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  flex-flow: row wrap;
+}
+
+#vs {
+  align-self: center;
+  font-size: 25px;
+}
+
+.team-info-box {
+  width: 40%;
+  margin: auto;
+  background-size: cover;
+}
+
+.team-city, .team-name {
+  text-align: center;
+}
+
+.team-city {
+  font-size: 20px;
+}
+
+.team-name {
+  font-size: 28px;
+}
+
+/* #team-info-container .team-info-box:last-child {
+  margin-left: auto;
+} */
 
 .box-info-col {
   text-align: center;
