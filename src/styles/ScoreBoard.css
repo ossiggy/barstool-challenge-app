@@ -1,0 +1,45 @@
+.scoreboard-container {
+  max-width: 90%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.box-info-col {
+  text-align: center;
+  padding: 0;
+}
+
+.header .score-cell{
+  color: white;
+  background-color: #141E2F;
+}
+
+.away {
+  color: white;
+  background-color: #141E2F;
+}
+
+.home {
+  color: white;
+  background-color: red;
+}
+
+.teams {
+  border-right: 1px solid lightgray;
+}
+
+#headers {
+  border-bottom: 1px solid lightgray;
+}
+
+#headers .box-info-col:last-child {
+  border-right: none;
+}
+#headers .score-cell:last-child {
+  border-right: none;
+}
+
+#headers .box-info-col {
+  border-right: 1px solid lightgray;
+}

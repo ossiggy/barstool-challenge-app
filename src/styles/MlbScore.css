@@ -1,0 +1,11 @@
+.totals {
+  background-color: lightblue;
+}
+
+.runs {
+  border-left: 1px solid lightgray;
+}
+
+#errors-header div:first-child{
+  border-top-right-radius: 5px;
+}
