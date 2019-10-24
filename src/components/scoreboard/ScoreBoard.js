@@ -1,14 +1,15 @@
 import React from 'react';
 import { get } from 'lodash';
 import { Button } from 'react-bootstrap';
-import MlbScore from './MlbScore';
-import NbaScore from './NbaScore';
+import StatBox from './StatBox';
 import TeamInfo from './TeamInfo';
+import MlbScore from '../mlb/MlbScore';
+import NbaScore from '../nba/NbaScore';
 import GameStatus from './GameStatus';
-import useMoveGame from '../hooks/useMoveGame';
-import useGameFeed from '../hooks/useGameFeed';
+import useMoveGame from '../../hooks/useMoveGame';
+import useGameFeed from '../../hooks/useGameFeed';
 
-import '../styles/ScoreBoard.css';
+import '../../styles/ScoreBoard.css';
 
 export default function ScoreBoard(props){
   const [data, loading, isError] = useGameFeed(props.url);
@@ -60,7 +61,10 @@ export default function ScoreBoard(props){
         <TeamInfo team={get(data, 'home_team')} status="home"/>
       </div>
       {content}
-      <Button variant="success" onClick={(e) => handleClick(e)}>{buttonText}</Button>
+      <StatBox type={league} away={get(data, 'stats.away')} home={get(data, 'stats.home')}/>
+      <div className="start-button-container">
+        <Button variant="success" onClick={(e) => handleClick(e)}>{buttonText}</Button>
+      </div>
     </div>
   );
 };

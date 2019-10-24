@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import ScoreBoard from './ScoreBoard';
+import ScoreBoard from './scoreboard/ScoreBoard';
 import Header from './Header';
 
 import '../styles/App.css';

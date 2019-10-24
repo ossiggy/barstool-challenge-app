@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/GameStatus.css'
+import '../../styles/GameStatus.css'
 
 export default function GameStatus({status, startDateTime, period, marker}){
   const startTime = new Date(startDateTime).getHours();

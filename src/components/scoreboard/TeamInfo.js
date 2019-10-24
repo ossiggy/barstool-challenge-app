@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 
-import '../styles/TeamInfo.css';
+import '../../styles/TeamInfo.css';
 
 export default function TeamInfo(props){
   const { team, status } = props

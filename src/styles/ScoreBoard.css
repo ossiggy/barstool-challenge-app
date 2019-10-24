@@ -68,3 +68,12 @@
 #headers .box-info-col {
   border-right: 1px solid lightgray;
 }
+
+.start-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.start-button-container button {
+  width: 45%;
+}

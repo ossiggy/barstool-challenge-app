@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Score = ({ score }) => {
+import '../../styles/Score.css';
+
+function Score({ score }){
   return(
     <div className="score-cell">{score}</div>
   );

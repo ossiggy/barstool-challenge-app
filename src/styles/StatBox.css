@@ -1,0 +1,38 @@
+.stat-box {
+  display: flex;
+  max-width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  flex-flow: row wrap;
+}
+
+.stat-box-team {
+  margin: 5px auto 5px auto;
+  padding: 0 5px 0 5px;
+  min-width: 45%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.mlb-button-box {
+  text-align:center;
+  margin: 10px 0 10px 0;
+}
+
+.mlb-stat-box-button {
+  margin-left: 5px;
+}
+
+.player-stats-headers {
+  border-bottom: 1px solid lightgray;
+}
+
+.player-stats-col, .stats-header {
+  padding: 0;
+  text-align: center;
+}
+
+.position-0 {
+  text-align: left;
+  min-width: 20%;
+}

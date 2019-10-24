@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import { map, get } from 'lodash';
-import Score from './Score';
+import Score from '../scoreboard/Score';
 
-import '../styles/MlbScore.css'
+import '../../styles/MlbScore.css'
 
 export default function MlbScore(props) {
   const {
@@ -11,8 +11,6 @@ export default function MlbScore(props) {
     totals,
     away_team,
     home_team,
-    eventInfo,
-    officials,
     home_period_scores,
     away_period_scores,
   } = get(props, 'data');
@@ -73,7 +71,7 @@ export default function MlbScore(props) {
         })}
           <Col className="box-info-col totals runs">{awayRuns}</Col>
           <Col className="box-info-col totals">{get(totals, 'away_batter_totals.hits')}</Col>
-          <Col className="box-info-col totals">{get(stats, 'away_errors')}</Col>
+          <Col className="box-info-col totals">{get(stats, 'away._errors')}</Col>
       </Row>
       <Row id="home" className="game-info">
       <Col className="box-info-col home teams" xs={2}>{get(home_team, 'abbreviation')}</Col>
@@ -92,7 +90,7 @@ export default function MlbScore(props) {
         })}
         <Col className="box-info-col totals runs">{homeRuns}</Col>
         <Col className="box-info-col totals">{get(totals, 'home_batter_totals.hits')}</Col>
-        <Col className="box-info-col totals">{get(stats, 'home_errors')}</Col>
+        <Col className="box-info-col totals">{get(stats, 'home._errors')}</Col>
       </Row>
     </Container>
   );
