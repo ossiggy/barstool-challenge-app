@@ -15,10 +15,24 @@ export default function MlbScore(props) {
     officials,
     home_period_scores,
     away_period_scores,
-  } = props;
+  } = get(props, 'data');
 
-  console.log(totals);
+  const { marker, period } = props;
 
+  const homeScoreByInning = marker !== 'bot' && period < 9 
+    ? home_period_scores.slice(0, period - 1)
+    : home_period_scores.slice(0, period);
+
+  const homeRuns = homeScoreByInning.length 
+    ? homeScoreByInning.reduce((acc, x) => acc + x)
+    : 0;
+
+  const awayScoreByInning = away_period_scores.slice(0, period);
+  
+  const awayRuns = awayScoreByInning.length 
+    ? awayScoreByInning.reduce((acc, x) => acc + x)
+    : 0;
+  
   const headers = new Array(9);
 
   return (
@@ -44,27 +58,39 @@ export default function MlbScore(props) {
       </Row>
       <Row id="away" className="game-info">
       <Col className="box-info-col away teams" xs={2}>{get(away_team, 'abbreviation')}</Col>
-        {map(away_period_scores, (score, i) => {
-          return (
-            <Col className="box-info-col" key={`away-score-${i}`}>
-              <Score score={score} />
-            </Col>
-          )
+        {map(headers, (slot, i) => {
+          let scoreByInning;
+          if (awayScoreByInning[i]){
+              scoreByInning = <Score score={awayScoreByInning[i]} />
+            } else {
+              scoreByInning = <Score score={0} />
+            }
+            return  (
+              <Col className="box-info-col" key={`away-score-${i}`}>
+                  {scoreByInning}
+              </Col>
+            )
         })}
-          <Col className="box-info-col totals runs">{get(totals, 'away_batter_totals.runs')}</Col>
+          <Col className="box-info-col totals runs">{awayRuns}</Col>
           <Col className="box-info-col totals">{get(totals, 'away_batter_totals.hits')}</Col>
           <Col className="box-info-col totals">{get(stats, 'away_errors')}</Col>
       </Row>
       <Row id="home" className="game-info">
       <Col className="box-info-col home teams" xs={2}>{get(home_team, 'abbreviation')}</Col>
-        {map(home_period_scores, (score, i) => {
-          return (
-            <Col className="box-info-col" key={`home-score-${i}`}>
-              <Score score={score} />
-            </Col>
-          )
+        {map(headers, (slot, i) => {
+          let scoreByInning;
+          if (homeScoreByInning[i]){
+              scoreByInning = <Score score={homeScoreByInning[i]} />
+            } else {
+              scoreByInning = <Score score={0} />
+            }
+            return  (
+              <Col className="box-info-col" key={`home-score-${i}`}>
+                  {scoreByInning}
+              </Col>
+            )
         })}
-        <Col className="box-info-col totals runs">{get(totals, 'home_batter_totals.runs')}</Col>
+        <Col className="box-info-col totals runs">{homeRuns}</Col>
         <Col className="box-info-col totals">{get(totals, 'home_batter_totals.hits')}</Col>
         <Col className="box-info-col totals">{get(stats, 'home_errors')}</Col>
       </Row>

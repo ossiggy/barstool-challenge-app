@@ -1,0 +1,21 @@
+#vs {
+  align-self: center;
+  font-size: 20px;
+}
+
+#timezone {
+  align-self: center;
+}
+
+.team-info-box {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  background-size: cover;
+}
+
+#status {
+  margin: 0;
+  width: 15%;
+  background-color: lightgrey;
+}
