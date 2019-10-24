@@ -10,7 +10,7 @@ export default function ScoreRow({ team, scores, type, hits, errors, headers }){
   
   return (
       <Row id={type} className="game-info">
-        <Col className="box-info-col away teams" xs={2}>{get(team, 'abbreviation')}</Col>
+        <Col className={`box-info-col ${type} teams`} xs={2}>{get(team, 'abbreviation')}</Col>
           {map(headers, (slot, i) => {
             let scoreByInning;
             if (scores[i] >= 0){

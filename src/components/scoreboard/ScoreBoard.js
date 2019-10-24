@@ -33,7 +33,6 @@ export default function ScoreBoard(props){
     league='NBA';
     content = <NbaScore {...data} />;
   } else if (get(data, 'league') === 'MLB') {
-    console.log(data);
     league='MLB';
     content = <MlbScore data={data} period={period} marker={marker} />;
   }

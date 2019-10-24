@@ -1,5 +1,5 @@
 import React from 'react';
-import { map, get } from 'lodash';
+import { map } from 'lodash';
 import { Container, Row, Col } from 'react-bootstrap';
 import Score from '../scoreboard/Score';
 
