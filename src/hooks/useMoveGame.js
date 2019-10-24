@@ -27,7 +27,6 @@ const useMoveGame = () => {
   }
 
   const incrementMlb = (mark, inning) => {
-    setMarker(updateMlbMarker(mark));
     if (status === 'completed') {
       setNewGame();
     } else if (inning === 9 && mark === 'bot') {
@@ -35,9 +34,12 @@ const useMoveGame = () => {
       setButtonText('Reset');
     }
     else if (mark === 'bot'){
+      setMarker(updateMlbMarker(mark));
       setPeriod(inning += 1);
       setStatus('in progress');
       setButtonText('Next');
+    } else {
+      setMarker(updateMlbMarker(mark));
     }
   }
 

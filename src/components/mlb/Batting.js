@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Score from '../scoreboard/Score';
 
 export default function Batting(props) {
-  console.log(props);
   const fields = [
     `${props[0].team_abbreviation}`,
     'AB',
