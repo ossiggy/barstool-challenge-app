@@ -36,3 +36,9 @@
   text-align: left;
   min-width: 20%;
 }
+
+@media screen and (max-width: 580px) {
+  .stat-box-team {
+    min-width: 100%;
+  }
+}
