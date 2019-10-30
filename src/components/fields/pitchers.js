@@ -1,5 +1,4 @@
 export const pitcherFields = [
-  "ERA",
   "IP",
   "H",
   "R",
@@ -7,12 +6,12 @@ export const pitcherFields = [
   "BB",
   "K",
   "HR",
+  "ERA",
   "WHIP"
 ];
 
 export const pitcherKeys = [
   "last_name",
-  "era",
   "innings_pitched",
   "hits_allowed",
   "runs_allowed",
@@ -20,5 +19,6 @@ export const pitcherKeys = [
   "walks",
   "strike_outs",
   "home_runs_allowed",
+  "era",
   "whip"
 ];
