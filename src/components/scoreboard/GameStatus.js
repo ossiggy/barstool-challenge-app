@@ -3,6 +3,7 @@ import React from "react";
 import "../../styles/GameStatus.css";
 
 export default function GameStatus({ status, startDateTime, period, marker }) {
+  // automatically adjusts for EST
   const startTime = new Date(startDateTime).getHours();
   const startDate = new Date(startDateTime).toDateString();
 
@@ -22,7 +23,7 @@ export default function GameStatus({ status, startDateTime, period, marker }) {
     timezone = <div id="timezone">est</div>;
     date = (
       <div id="date">
-        {startDate.substring(0, startDate.indexOf("2012")).trim()}
+        {startDate.substring(0, startDate.indexOf("201")).trim()}
       </div>
     );
   } else if (status === "in progress") {
