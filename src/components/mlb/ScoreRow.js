@@ -26,7 +26,7 @@ export default function ScoreRow({
           scoreByInning = <Score score={""} />;
         }
         return (
-          <Col className="box-info-col" key={`away-score-${i}`}>
+          <Col className="box-info-col" key={`${type}-score-${i}`}>
             {scoreByInning}
           </Col>
         );
