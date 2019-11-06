@@ -7,17 +7,16 @@ const useGameFeed = (feedUrl) => {
   
   useEffect(() => {
     const getGameData = async () => {
-      setIsError(false);
       setLoading(true);
+      setIsError(false);
       try {
-        console.log(feedUrl);
         const response = await fetch(feedUrl);
         const gameData = await response.json();
         setData(gameData);
       } catch (err) {
-        setIsError(true);
+        return setIsError(true);
       }
-      setLoading(false);
+      return setLoading(false);
     }
     getGameData();
   }, [feedUrl])

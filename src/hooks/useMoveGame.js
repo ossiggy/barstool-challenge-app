@@ -1,66 +1,73 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const useMoveGame = () => {
+const useMoveGame = league => {
   const [period, setPeriod] = useState(0);
-  const [status, setStatus] = useState('pending');
-  const [marker, setMarker] = useState('bot')
-  const [buttonText, setButtonText] = useState('Start Game');
+  const [status, setStatus] = useState("pending");
+  const [marker, setMarker] = useState("bot");
+  const [buttonText, setButtonText] = useState("Start Game");
 
-  const updateMlbMarker = (mark) => {
+  const updateMlbMarker = mark => {
     switch (mark) {
-      case 'top':
-        return 'mid';
-      case 'mid':
-        return 'bot';
-      case 'bot':
-        return 'top';
+      case "top":
+        return "mid";
+      case "mid":
+        return "bot";
+      case "bot":
+        return "top";
       default:
-        return '';
-    };
-  }
+        return "";
+    }
+  };
 
   const setNewGame = () => {
     setPeriod(0);
-    setMarker('bot');
-    setStatus('pending');
-    setButtonText('Start Game');
-  }
+    setStatus("pending");
+    setMarker("bot");
+    setButtonText("Start Game");
+  };
 
   const incrementMlb = (mark, inning) => {
-    if (status === 'completed') {
+    if (status === "completed") {
       setNewGame();
-    } else if (inning === 9 && mark === 'bot') {
-      setStatus('completed');
-      setButtonText('Reset');
-    }
-    else if (mark === 'bot'){
+    } else if (inning === 9 && mark === "bot") {
+      setStatus("completed");
+      setButtonText("Reset");
+    } else if (mark === "bot") {
+      setPeriod((inning += 1));
+      setStatus("in progress");
       setMarker(updateMlbMarker(mark));
-      setPeriod(inning += 1);
-      setStatus('in progress');
-      setButtonText('Next');
+      setButtonText("Next");
     } else {
       setMarker(updateMlbMarker(mark));
     }
-  }
+  };
 
   const incrementNba = (mark, quarter) => {
-    if (status === 'completed') {
+    if (status === "completed") {
       setNewGame();
     } else if (quarter === 4) {
-      setMarker('')
-      setStatus('completed')
-      setButtonText('Reset');
-    } else if (quarter === 2 && mark !== 'Half') {
-      setMarker('Half');
-      setButtonText('Next');
+      setStatus("completed");
+      setMarker("");
+      setButtonText("Reset");
+    } else if (quarter === 2 && mark !== "Half") {
+      setMarker("Half");
+      setButtonText("Next");
     } else {
-      setMarker('');
-      setPeriod(quarter += 1)
-      setButtonText('Next');
+      setPeriod((quarter += 1));
+      setMarker("");
+      setButtonText("Next");
     }
-  }
+  };
 
-  return [period, status, marker, buttonText, incrementMlb, incrementNba];
-}
+  const incrementGame = (marker, period) => {
+    if (league === "MLB") {
+      incrementMlb(marker, period);
+    } else if (league === "NBA") {
+      incrementNba(marker, period);
+    }
+  };
+
+  return [period, status, marker, buttonText, incrementGame];
+};
 
 export default useMoveGame;
