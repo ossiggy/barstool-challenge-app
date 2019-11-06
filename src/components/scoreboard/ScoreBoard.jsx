@@ -18,9 +18,8 @@ export default function ScoreBoard(props) {
     status,
     marker,
     buttonText,
-    incrementMlb,
-    incrementNba
-  ] = useMoveGame(0, "bot");
+    incrementGame
+  ] = useMoveGame(get(data, "league"));
 
   let content;
   let league;
@@ -37,13 +36,8 @@ export default function ScoreBoard(props) {
     content = <MlbScore data={data} period={period} marker={marker} />;
   }
 
-  const handleClick = e => {
-    e.preventDefault();
-    if (league === "MLB") {
-      incrementMlb(marker, period);
-    } else if (league === "NBA") {
-      incrementNba(marker, period);
-    }
+  const handleClick = () => {
+    incrementGame(marker, period);
   };
 
   const { start_date_time } = get(data, "eventInfo", "");
@@ -67,7 +61,7 @@ export default function ScoreBoard(props) {
         home={get(data, "stats.home")}
       />
       <div className="start-button-container">
-        <Button variant="success" onClick={e => handleClick(e)}>
+        <Button variant="success" onClick={handleClick}>
           {buttonText}
         </Button>
       </div>
