@@ -1,0 +1,1 @@
+export { useMoveGame } from "./useMoveGame";
